@@ -1,5 +1,0 @@
-
-DROP TABLE IF EXISTS recipes;
-DROP TABLE IF EXISTS supplies;
-DROP TABLE IF EXISTS directions;
-DROP TYPE IF EXISTS skill_level;
