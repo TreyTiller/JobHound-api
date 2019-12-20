@@ -1,7 +1,7 @@
-const RecipesService = {
-    getAllRecipes(knex) {
-        return knex.select('*').from("recipes")
+const ListingService = {
+    getAllListings(knex) {
+        return knex.select('*').from("job_listings")
     }
 }
 
-module.exports = RecipesService
+module.exports = ListingService
