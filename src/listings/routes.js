@@ -33,7 +33,7 @@ const serializeListing = listing => ({
           .catch(next)
       })
       .post(requireAuth, bodyParser, (req, res, next) => {
-        for (const field of ['title', 'company_name', 'stage']) {
+        for (const field of ['title', 'company_name', 'location', 'stage']) {
           if (!req.body[field]) {
             logger.error(`${field} is required`)
             return res.status(400).send({
@@ -59,6 +59,40 @@ const serializeListing = listing => ({
           })
           .catch(next)
       })
+
+    listingsRouter
+    .route('/:listing_id')
+    .all((req, res, next) => {
+        const { listing_id } = req.params
+        ListingsService.getById(req.app.get('db'), listing_id)
+          .then(listing => {
+            if (!listing) {
+              logger.error(`Listing with id ${listing_id} not found.`)
+              return res.status(404).json({
+                error: { message: `Listing Not Found` }
+              })
+            }
+            res.listing = listing
+            next()
+          })
+          .catch(next)
+      })
+      .get((req, res) => {
+        res.json(serializeListing(res.listing))
+      })
+      .delete(requireAuth,(req, res, next) => {
+        const { listing_id } = req.params
+        ListingsService.deleteListing(
+          req.app.get('db'),
+          listing_id
+        )
+          .then(numRowsAffected => {
+            logger.info(`Listing with id ${listing_id} deleted.`)
+            res.status(204).end()
+          })
+          .catch(next)
+      })
+
 
 
 module.exports = listingsRouter
