@@ -17,7 +17,7 @@ const ListingsService = {
       deleteListing(knex, user_id) {
         return knex('job_listings')
           .where({ user_id })
-          .orWhere({id})
+          .orWhere({user_id: null})
           .delete()
       },
 }

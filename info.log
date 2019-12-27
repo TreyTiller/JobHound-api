@@ -128,3 +128,12 @@
 {"message":"Listing with id 9 created.","level":"info"}
 {"message":"Listing with id 10 created.","level":"info"}
 {"message":"Listing with id 11 created.","level":"info"}
+{"message":"Listing with id 1 deleted.","level":"info"}
+{"message":"Listing with id 4 deleted.","level":"info"}
+{"message":"Listing with id 4 deleted.","level":"info"}
+{"message":"title is required","level":"error"}
+{"message":"location is required","level":"error"}
+{"message":"Listing with id 12 created.","level":"info"}
+{"message":"Listing with id 12 deleted.","level":"info"}
+{"message":"stage is required","level":"error"}
+{"message":"Listing with id 13 created.","level":"info"}
