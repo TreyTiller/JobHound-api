@@ -14,10 +14,9 @@ const ListingsService = {
             return rows[0]
           })
       },
-      deleteListing(knex, user_id) {
+      deleteListing(knex, id) {
         return knex('job_listings')
-          .where({ user_id })
-          .orWhere({user_id: null})
+          .where({ id })
           .delete()
       },
 }

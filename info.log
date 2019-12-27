@@ -137,3 +137,7 @@
 {"message":"Listing with id 12 deleted.","level":"info"}
 {"message":"stage is required","level":"error"}
 {"message":"Listing with id 13 created.","level":"info"}
+{"message":"Listing with id 13 deleted.","level":"info"}
+{"message":"Listing with id 4 deleted.","level":"info"}
+{"message":"Listing with id 13 deleted.","level":"info"}
+{"message":"Listing with id 12 deleted.","level":"info"}
