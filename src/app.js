@@ -7,7 +7,7 @@ const { NODE_ENV } = require('./config')
 const listingsRouter = require('./listings/routes')
 // const RecipeService = require('./recipes-service')
 const authRouter = require('./auth/auth-router')
-// const directionsRouter = require('./directions/routes')
+//const searchRouter = require('./search/routes')
 // const suppliesRouter = require('./supplies/routes')
 const usersRouter = require('./users/routes')
 
@@ -23,7 +23,7 @@ app.use(cors());
 
 app.use('/api/auth', authRouter)
 app.use('/api/listings', listingsRouter)
-// app.use('/api/directions', directionsRouter)
+//app.use('/api/search', searchRouter)
 // app.use('/api/supplies', suppliesRouter)
 app.use('/api/users', usersRouter)
 
