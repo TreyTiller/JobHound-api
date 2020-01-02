@@ -141,3 +141,7 @@
 {"message":"Listing with id 4 deleted.","level":"info"}
 {"message":"Listing with id 13 deleted.","level":"info"}
 {"message":"Listing with id 12 deleted.","level":"info"}
+{"message":"Listing with id 6 deleted.","level":"info"}
+{"message":"Listing with id 7 deleted.","level":"info"}
+{"message":"Listing with id undefined updated.","level":"info"}
+{"message":"Listing with id undefined updated.","level":"info"}

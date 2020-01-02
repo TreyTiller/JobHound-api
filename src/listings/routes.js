@@ -80,6 +80,34 @@ const serializeListing = listing => ({
       .get((req, res) => {
         res.json(serializeListing(res.listing))
       })
+      .put(requireAuth, bodyParser, (req, res, next) => {
+        for (const field of ['title', 'company_name', 'location', 'stage']) {
+          if (!req.body[field]) {
+            logger.error(`${field} is required`)
+            return res.status(400).send({
+              error: { message: `'${field}' is required` }
+            })
+          }
+        }
+
+        const { title, company_name, stage, source, location, contact, phone, email, notes, listing, date_interviewed, date_appllied } = req.body
+
+        const newListing = { id: req.param.listing_id, title, company_name, stage, source, location, contact, phone, email, notes, listing, date_interviewed, date_appllied, user_id: req.user.id }
+
+        ListingsService.updateListing(
+            req.app.get('db'),
+            req.params.listing_id,
+            newListing
+          )
+          .then(listing => {
+            logger.info(`Listing with id ${newListing.id} updated.`)
+            res
+              .status(200)
+              .json({newListing})
+          })
+          .catch(next)
+      })
+      
       .delete(requireAuth,(req, res, next) => {
         const { listing_id } = req.params
         ListingsService.deleteListing(
