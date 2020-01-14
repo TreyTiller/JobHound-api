@@ -9,6 +9,8 @@ const listingsRouter = require('./listings/routes')
 const authRouter = require('./auth/auth-router')
 //const searchRouter = require('./search/routes')
 // const suppliesRouter = require('./supplies/routes')
+const knex = require("knex");
+const { DATABASE_URL } = require("./config");
 const usersRouter = require('./users/routes')
 
 const app = express()
@@ -16,6 +18,13 @@ const app = express()
 const morganOption = (NODE_ENV === 'production')
     ? 'tiny'
     : 'common';
+
+    const db = knex({
+        client: "pg",
+        connection: DATABASE_URL
+      });
+      
+      app.set("db", db);
 
 app.use(morgan(morganOption))
 app.use(helmet())
