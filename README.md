@@ -1,4 +1,4 @@
-# To read more about the app head to the client repo! -https://github.com/TreyTiller/Homebrewed-app
+# To read more about the app head to the client repo! https://github.com/TreyTiller/JobHound-client
 
 ## This application was built using the following:
 
@@ -29,56 +29,25 @@ Returns a JWT for use as authentication throughout the application
 * Data Params:
    None
    
-### Recipe
+### Listing
 Returns a JSON object with recipe meta information inside
 ( Title, Skill, Time, Coffee amount, Water amount )
 
 * URL:
-  /api/recipe/:user_id
+  /api/listings/:user_id
   
 * Method:
   GET
+  POST
+  PUT
+  DELETE
   
 * Url Params:
    user_id travels with JWT after login as a param
    user_id: [integer]
 
 * Data Params:
-   When posting to this enpoint the recpie title, skill, and time are all required
-
-### Recipe Directions
-Returns a JSON object containing an array of directions
-
-* URL:
-  /api/directions/:recipe_id
-  
-* Method:
-  GET
-  POST
-  
-* Url Params:
-Id set based on the active url param
-   Recipe_id: [Integer]
-
-* Data Params:
-   The 'Title' is a required field which is to say all inputs must contain actual content
-
-### Recipe Supplies
-Returns a JSON object containing an array of supplies
-
-* URL:
-  /api/supplies/:recipe_id
-  
-* Method:
-  GET
-  POST
-  
-* Url Params:
- Id set based on the active url param
-   Recipe_id: [Integer]
-
-* Data Params:
-   The 'Title' is a required field which is to say all inputs must contain actual content
+   When posting to this enpoint the listing title, stage, and company_name, location are all required
 
 ### Registration
 Creates user credentials to use for login
